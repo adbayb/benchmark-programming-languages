@@ -1,0 +1,8 @@
+# Executables
+c
+go
+rust
+zig
+
+# Cache
+zig-cache
