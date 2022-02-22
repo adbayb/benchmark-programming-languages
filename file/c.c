@@ -17,11 +17,11 @@ int main() {
 	
 	if(buffer == NULL) return 1;
 	
-	fread(buffer, sizeof(char), size, file);
+	size_t bytesRead = fread(buffer, sizeof(char), size, file);
 	fclose(file);
 	free(buffer);
 
-	printf("Bytes read: %ld\n", size);
+	printf("Bytes read: %zu\n", bytesRead);
 
 	return 0;
 }

@@ -1,8 +1,3 @@
-// For Rust: rustc -C debuginfo=0 -C opt-level=3 rust.rs // with optimization flag (same as cargo build --release)
-// For Go: go build go.go
-// For C: gcc -O3 -Wall -o c c.c
-// For Zig: zig build-exe zig.zig -O ReleaseSafe
-// hyperfine ./c ./go ./rust ./zig "node js.js"  --warmup 5
 function create(size) {
 	const output = [];
 	let i;
