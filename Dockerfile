@@ -4,13 +4,16 @@
 FROM debian:stable-slim
 
 RUN apt-get update >/dev/null 2>&1 \
-    && apt-get install -y git wget xz-utils >/dev/null 2>&1
+    && apt-get install -y git make wget xz-utils >/dev/null 2>&1
 
 # ------ Install language binaries ------
 WORKDIR /opt
 
-# C (GCC)
-RUN apt-get install -y build-essential >/dev/null 2>&1
+# C (Clang)
+# Note: Clang is used instead of GCC since it's faster and uses less memory than GCC
+# By default, on Darwin machine (Mac OS), the GCC binary is a symlink to Clang (GCC is not used)
+# For more details, see: https://opensource.apple.com/source/clang/clang-23/clang/tools/clang/www/features.html#performance
+RUN apt-get install -y clang >/dev/null 2>&1
 
 # Go
 ARG VERSION=1.17.7 \
@@ -55,7 +58,7 @@ RUN mkdir $OUTPUT \
 ENV PATH "/opt/${OUTPUT}/:${PATH}"
 
 RUN echo "Installed versions:" \
-    && echo "------ C         ------" && gcc --version \ 
+    && echo "------ C         ------" && clang --version \ 
     && echo "------ Go        ------" && go version \
     && echo "------ Node.js   ------" && node --version \
     && echo "------ Rust      ------" && rustc --version \
