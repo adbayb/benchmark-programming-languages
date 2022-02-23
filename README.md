@@ -39,4 +39,4 @@ _If you don't have Docker, benchmark suite can still be run via `make all` comma
 
 Each benchmark result is saved inside the corresponding case folder. For example, for the bubble sort algorithm:
 - The general result outcome is available in the [bubble-sort/README.md](bubble-sort/README.md) file
-- All detailed measurements can be checked in the [bubble-sort/results.json](bubble-sort/results.json) file
+- All detailed measurements can be checked in the [bubble-sort/RESULTS.json](bubble-sort/RESULTS.json) file
