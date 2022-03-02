@@ -6,7 +6,7 @@ function main() {
 		value = i;
 	}
 
-    console.log(value);
-};
+	console.log(value);
+}
 
 main();
